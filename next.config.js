@@ -3,9 +3,8 @@ const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/
 });
 
-// Deployed as a GitHub Pages project site at https://mac-vo.github.io/MAC-VI.github.io/
-// so production assets must be served under the /MAC-VI.github.io base path. Dev stays at root.
-const basePath = process.env.NODE_ENV === 'production' ? '/MAC-VI.github.io' : '';
+// Deployed as the MAC-VI org root site at https://mac-vi.github.io/ (no base path).
+const basePath = '';
 
 const nextConfig = {
   eslint: {
