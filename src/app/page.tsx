@@ -96,14 +96,12 @@ export default function HomePage() {
         </div>
         <div className='layout z-20 relative flex min-h-screen flex-col items-center justify-center p-4 text-center'>
           <h1 className='mt-4 text-5xl'>
-            MAC-VI:{' '}
+            MAC-VI: Learned{' '}
             <span className={hlTextColor}>M</span>etrics-<span className={hlTextColor}>A</span>ware{' '}
             <span className={hlTextColor}>C</span>ovariance for Robust{' '}
             <span className={hlTextColor}>V</span>isual-<span className={hlTextColor}>I</span>nertial Fusion
+            {' '}in Initialization and Calibration
           </h1>
-          <div className={clsx('container text-xl my-4 font-bold', hlTextColor)}>
-            in Initialization and Calibration
-          </div>
           <div className='container pb-2'>
             <span className='text-lg'>
               <UnderlineLink href='https://edgarfx.github.io/'>Xiang Fei</UnderlineLink>
