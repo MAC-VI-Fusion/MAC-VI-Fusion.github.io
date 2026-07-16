@@ -280,7 +280,7 @@ export default function HomePage() {
       </section>
 
       {/* ===================== METHOD ===================== */}
-      <section className={clsx(bgColor, textColor)}>
+      <section className={clsx(secondaryBgColor, textColor)}>
         <div className='layout py-12'>
           <h2 className='pb-4'>Method</h2>
           <p className='text-lg'>
@@ -348,7 +348,7 @@ export default function HomePage() {
       </section>
 
       {/* ===================== RESULTS ===================== */}
-      <section className={clsx(secondaryBgColor, textColor)}>
+      <section className={clsx(bgColor, textColor)}>
         <div className='layout py-12'>
           <h2 className='pb-4'>Quantitative Results</h2>
           <div className='grid grid-cols-1 lg:grid-cols-2 gap-6 items-start [&_img]:h-[340px] [&_img]:w-auto [&_img]:object-contain [&_img]:mx-auto'>
@@ -369,10 +369,10 @@ export default function HomePage() {
       </section>
 
       {/* ===================== CITATION ===================== */}
-      <section className={clsx(bgColor, textColor)}>
+      <section className={clsx(secondaryBgColor, textColor)}>
         <div className='layout pt-12 pb-48'>
           <h2 className='mb-4'>Citation</h2>
-          <pre className={clsx(secondaryBgColor, 'rounded-xl p-4 overflow-x-auto text-sm')}>{citation_bibtex}</pre>
+          <pre className={clsx(bgColor, 'rounded-xl p-4 overflow-x-auto text-sm')}>{citation_bibtex}</pre>
         </div>
       </section>
     </main>
