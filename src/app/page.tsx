@@ -73,7 +73,7 @@ export default function HomePage() {
     'Challenging Environments': challenges,
     'Real-World Deployment': deployments as typeof challenges,
   };
-  const tabLabels = ['Challenging Environments', 'Real-World Deployment', 'Calibration'];
+  const tabLabels = ['Challenging Environments', 'Real-World Deployment'];
   const [activeTab, setActiveTab] = useState(tabLabels[0]);
 
   return (
@@ -203,9 +203,8 @@ export default function HomePage() {
           <h2 className='mb-4'>Demonstrations</h2>
           <p className='text-lg'>
             MAC-VI stays reliable where predefined uncertainties fail. Explore its behavior across{' '}
-            <span className='font-semibold'>challenging environments</span>, real-world{' '}
-            <span className='font-semibold'>deployments</span>, and the showcase{' '}
-            <span className='font-semibold'>calibration</span> system.
+            <span className='font-semibold'>challenging environments</span> and real-world{' '}
+            <span className='font-semibold'>deployments</span>.
           </p>
 
           {/* Tab bar */}
@@ -226,58 +225,58 @@ export default function HomePage() {
         </div>
 
         {/* Tab content */}
-        {activeTab === 'Calibration' ? (
-          <>
-            <div className='layout pb-4'>
-              <p className='text-base italic'>
-                For each sequence we show the <span className='font-semibold'>sensor input</span> (left) and the{' '}
-                <span className='font-semibold'>estimated trajectory during calibration</span> (right), played in sync.
-              </p>
-            </div>
-            <div className='wide-layout grid grid-cols-1 lg:grid-cols-2 gap-4 pb-12'>
-              {calibSequences.map(({ name, seq, result }) => (
-                <div key={name} className='rounded-xl bg-neutral-900 text-white p-3'>
-                  <p className='pb-2 lg:text-lg'>{name}</p>
-                  <div className='grid grid-cols-2 gap-2'>
-                    <video controls autoPlay loop muted playsInline className='rounded-lg w-full aspect-square object-contain bg-black'>
-                      <source src={asset(seq)} type='video/mp4' />
-                    </video>
-                    <video controls autoPlay loop muted playsInline className='rounded-lg w-full aspect-square object-contain bg-black'>
-                      <source src={asset(result)} type='video/mp4' />
-                    </video>
-                  </div>
-                  <div className='grid grid-cols-2 gap-2 pt-1 text-xs text-gray-400'>
-                    <span className='text-center'>Sensor Input</span>
-                    <span className='text-center'>Estimated Trajectory during Calibration</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </>
-        ) : (
-          <div className='wide-layout grid grid-cols-1 lg:grid-cols-12 gap-2 pt-6 pb-12'>
-            {demoTabs[activeTab].map(({ title, src, badge, note, className }) => (
-              <div key={src} className={clsx('rounded-xl flex flex-col text-white bg-neutral-900', className)}>
-                <div className='p-2'>
-                  <p className='lg:text-lg'>
-                    {title}{' '}
-                    {badge && (
-                      <span className='p-1 rounded-lg bg-primary-900 font-light text-base text-primary-500'>
-                        {badge}
-                      </span>
-                    )}
-                  </p>
-                  {note && <p className='text-xs text-gray-400 mt-1'>{note}</p>}
-                </div>
-                <div className='flex-grow' />
-                <video controls autoPlay loop muted playsInline className='rounded-xl mx-auto'>
-                  <source src={asset(src)} type='video/mp4' />
-                </video>
-                <div className='flex-grow' />
+        <div className='wide-layout grid grid-cols-1 lg:grid-cols-12 gap-2 pt-6 pb-12'>
+          {demoTabs[activeTab].map(({ title, src, badge, note, className }) => (
+            <div key={src} className={clsx('rounded-xl flex flex-col text-white bg-neutral-900', className)}>
+              <div className='p-2'>
+                <p className='lg:text-lg'>
+                  {title}{' '}
+                  {badge && (
+                    <span className='p-1 rounded-lg bg-primary-900 font-light text-base text-primary-500'>
+                      {badge}
+                    </span>
+                  )}
+                </p>
+                {note && <p className='text-xs text-gray-400 mt-1'>{note}</p>}
               </div>
-            ))}
-          </div>
-        )}
+              <div className='flex-grow' />
+              <video controls autoPlay loop muted playsInline className='rounded-xl mx-auto'>
+                <source src={asset(src)} type='video/mp4' />
+              </video>
+              <div className='flex-grow' />
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ===================== CALIBRATION ===================== */}
+      <section className={clsx(bgColor, textColor)}>
+        <div className='layout pt-12 pb-4'>
+          <h2 className='mb-4'>Calibration</h2>
+          <p className='text-lg'>
+            For each sequence we show the <span className='font-semibold'>sensor input</span> (left) and the{' '}
+            <span className='font-semibold'>estimated trajectory during calibration</span> (right), played in sync.
+          </p>
+        </div>
+        <div className='wide-layout grid grid-cols-1 lg:grid-cols-2 gap-4 pb-12'>
+          {calibSequences.map(({ name, seq, result }) => (
+            <div key={name} className='rounded-xl bg-neutral-900 text-white p-3'>
+              <p className='pb-2 lg:text-lg'>{name}</p>
+              <div className='grid grid-cols-2 gap-2'>
+                <video controls autoPlay loop muted playsInline className='rounded-lg w-full aspect-square object-contain bg-black'>
+                  <source src={asset(seq)} type='video/mp4' />
+                </video>
+                <video controls autoPlay loop muted playsInline className='rounded-lg w-full aspect-square object-contain bg-black'>
+                  <source src={asset(result)} type='video/mp4' />
+                </video>
+              </div>
+              <div className='grid grid-cols-2 gap-2 pt-1 text-xs text-gray-400'>
+                <span className='text-center'>Sensor Input</span>
+                <span className='text-center'>Estimated Trajectory during Calibration</span>
+              </div>
+            </div>
+          ))}
+        </div>
       </section>
 
       {/* ===================== METHOD ===================== */}
