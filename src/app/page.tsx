@@ -102,7 +102,7 @@ export default function HomePage() {
             <span className={hlTextColor}>V</span>isual-<span className={hlTextColor}>I</span>nertial Fusion
             {' '}in Initialization and Calibration
           </h1>
-          <div className='container mt-8 pb-2'>
+          <div className='container mt-12 pb-2'>
             <span className='text-lg'>
               <UnderlineLink href='https://edgarfx.github.io/'>Xiang Fei</UnderlineLink>
               <span className='align-super text-sm leading-none'>*1</span>, &nbsp;
